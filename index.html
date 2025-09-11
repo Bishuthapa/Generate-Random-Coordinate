@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Random Coordinate Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+      background: #333;
+    }
+    h1 {
+      color: #333;
+    }
+    #output {
+      font-size: 22px;
+      font-weight: bold;
+      margin-top: 20px;
+      color: #2c3e50;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 15px;
+      border: none;
+      border-radius: 6px;
+      background: #4CAF50;
+      color: white;
+      transition: 0.2s;
+    }
+    button:hover {
+      background: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h1>🌍 Random Coordinate Generator</h1>
+
+  <div id="output">Click the button to generate a coordinate</div>
+  <button onclick="showCoordinate()">Generate</button>
+
+  <!-- Link to coordinate.js -->
+  <script src="randomeCoordinate.js"></script>
+  <script>
+    function showCoordinate() {
+      const result = coordinate(); // call function from coordinate.js
+
+      const lat = `${result.latitude}°${result.minutesLat}'${result.secondsLat}" ${result.directionLat}`;
+      const long = `${result.longitude}°${result.minutesLong}'${result.secondsLong}" ${result.directionLong}`;
+
+      document.getElementById("output").textContent =
+        `Latitude: ${lat}, Longitude: ${long}`;
+    }
+  </script>
+</body>
+</html>
